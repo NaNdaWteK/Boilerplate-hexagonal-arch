@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  app-postgres-test:
+    image: postgres:14.4
+    container_name: app-postgres-test
+    ports:
+      - '5438:5438'
+    expose:
+      - '5438'
+    restart: unless-stopped
+    volumes:
+      - ./databases/postgres/:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user_name
+      - POSTGRES_PASSWORD=secret_password
+      - POSTGRES_DB=database_name
+      - POSTGRES_PORT=5438
+    networks:
+      - nginxproxy_app
+    command:
+      - '-p 5438'
+
+networks:
+  nginxproxy_app:
+    external:
+      name: nginxproxy_app

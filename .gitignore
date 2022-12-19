@@ -1,0 +1,16 @@
+# Artifacts
+/node_modules/
+/dist/
+
+# Storage
+*.db
+databases/*
+
+# Logs
+*.log
+
+# Developer info files
+__*
+
+# Environment
+.env
