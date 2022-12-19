@@ -47,6 +47,10 @@ Create another copy of this file with diferent configuration for all your enviro
 
 If you need to delete it during development, it's placed on databases/postgres
 
+## Swagger docs
+
+Visit `http://localhost:8000/docs`
+
 ---
 
 Check out the `dist` directory for deployment in each environment.

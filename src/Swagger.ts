@@ -1,3 +1,3 @@
-export default class Docs {
+export default class Swagger {
   static spec?: unknown;
 }

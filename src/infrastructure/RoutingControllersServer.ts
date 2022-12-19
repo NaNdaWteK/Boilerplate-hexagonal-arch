@@ -1,7 +1,6 @@
 import Router from 'koa-router';
 import * as rc from 'routing-controllers';
 import * as to from 'typeorm';
-import Docs from '../Swagger';
 import morgan from 'koa-morgan';
 import { koaSwagger } from 'koa2-swagger-ui';
 import config from '../config/default';
@@ -9,6 +8,7 @@ import HealthzRoutingController from './controllers/HealthzRoutingController';
 import LoggerInterface from './_core/LoggerInterface';
 import { CorsHandler } from './middlewares/CorsHandler';
 import { ErrorHandler } from './middlewares/ErrorHandler';
+import Docs from './controllers/Docs';
 
 export interface ServerInterface {
   start(): void;
@@ -58,7 +58,7 @@ export class RoutingControllerServer implements ServerInterface {
     this.app.use(new CorsHandler().use);
     this.app.use(new ErrorHandler().use);
     this.router.get(
-      '/documentation',
+      '/docs',
       koaSwagger({
         title: 'Billar API',
         swaggerOptions: {
